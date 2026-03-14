@@ -1,0 +1,31 @@
+"Act as a Senior Frontend Developer. Build a professional, responsive portfolio website for a Full-Stack Software Engineer.
+
+The Tech Stack: > - HTML5, Tailwind CSS (via CDN for simplicity), and vanilla JavaScript.
+
+Modern, dark-themed UI with accent colors (like Emerald or Azure Blue).
+
+The Sections Needed:
+
+Hero Section: Include a catchy headline: 'Building Scalable Cloud Solutions & Secure Automations,' a sub-headline mentioning 'Taonga kulture sikalumbi | Founder of [Your Business Name],' and a 'View Projects' CTA.
+
+Projects Grid: Create a 3-card layout. Each card needs a placeholder for an image, a title, a short 'Problem/Solution' description, and tags for the tech stack (e.g., React, Azure, SQL).
+
+Skills Section: Categorized into 'Frontend', 'Backend/Cloud', and 'Automation/Security'.
+
+Contact Form: A clean, centered form with fields for Name, Email, and Message.
+
+Design Requirements:
+
+Use a 'Glassmorphism' effect for the project cards.
+
+Ensure it is mobile-friendly with a hamburger menu.
+
+Add smooth-scroll behavior for navigation links."
+
+Refine with "Follow-up" prompts: Once the structure is there, ask Copilot for specific polish:
+
+"Add a hover animation to the project cards that slightly lifts them up."
+
+"Rewrite the 'About' section to sound more like a professional consultant and less like a student."
+
+"Add a sticky navigation bar that changes background opacity when scrolling."

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taonga Kulture Sikalumbi | Multi-Platform Engineer</title>
+    <meta name="description" content="Portfolio of Taonga Kulture Sikalumbi - Software Engineer specializing in Mobile, Desktop, and AI-driven Web Automation." />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              accent: { 400: '#34d399', 500: '#10b981', 600: '#059669' },
+              azure: { 400: '#38bdf8', 500: '#0ea5e9' }
+            },
+            boxShadow: { glow: '0 0 35px rgba(16, 185, 129, 0.25)' }
+          }
+        }
+      };
+    </script>
+    <style>
+      body {
+        background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.14), transparent 40%),
+          radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.14), transparent 40%),
+          #020617;
+      }
+      .glass {
+        background: rgba(15, 23, 42, 0.45);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        backdrop-filter: blur(12px);
+      }
+      .project-slider {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .project-slider::-webkit-scrollbar {
+        display: none;
+      }
+      .project-slide {
+        flex: 0 0 100%;
+      }
+      @media (min-width: 1024px) {
+        .project-slide {
+          flex: 0 0 calc((100% - 2rem) / 3);
+        }
+      }
+      .project-card {
+        border: 1px solid rgba(148, 163, 184, 0.25);
+      }
+      .project-card:hover,
+      .project-card.is-active {
+        border-color: rgba(52, 211, 153, 0.75);
+        box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35), 0 0 28px rgba(16, 185, 129, 0.25);
+      }
+      .project-video {
+        opacity: 0.55;
+        transition: opacity 300ms ease;
+      }
+      .project-card:hover .project-video,
+      .project-card.is-active .project-video,
+      .project-card.is-playing .project-video {
+        opacity: 1;
+      }
+      .video-frame {
+        aspect-ratio: 16 / 9;
+      }
+      .video-overlay {
+        background: rgba(15, 23, 42, 0.38);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        backdrop-filter: blur(8px);
+        opacity: 1;
+        transition: opacity 280ms ease, transform 280ms ease;
+      }
+      .project-card.is-playing .video-overlay,
+      .project-card:hover .video-overlay {
+        opacity: 0;
+        transform: scale(0.98);
+        pointer-events: none;
+      }
+      .pulse-dot {
+        animation: pulse-demo 1.8s ease-in-out infinite;
+      }
+      @keyframes pulse-demo {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+        }
+      }
+    </style>
+  </head>
+  <body class="text-slate-100 antialiased">
+    <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#home" class="text-lg font-bold tracking-tight text-white">TK.SIKALUMBI</a>
+        <ul class="hidden items-center gap-8 text-sm font-medium text-slate-200 md:flex">
+          <li><a href="#projects" class="hover:text-accent-400">Projects</a></li>
+          <li><a href="#skills" class="hover:text-accent-400">Skills</a></li>
+          <li><a href="#about" class="hover:text-accent-400">About</a></li>
+          <li><a href="#contact" class="hover:text-accent-400">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="home" class="mx-auto max-w-6xl px-4 pt-32 sm:px-6 lg:px-8">
+      <section class="py-16">
+        <div class="inline-flex items-center rounded-full border border-azure-500/40 bg-azure-500/10 px-3 py-1 text-xs font-medium text-azure-300 mb-6">
+          ● Available for Professional Projects
+        </div>
+        <h1 class="max-w-4xl text-5xl font-extrabold leading-tight text-white sm:text-6xl">
+          Building <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-azure-400">Multi-Platform</span> Solutions with AI Precision.
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg text-slate-300">
+          I am <strong>Taonga Kulture Sikalumbi</strong>, a Software Engineer and founder of <strong>Rajab Culture Digital Solutions</strong>. I build high-performance Mobile, Desktop, and AI-driven Web applications that solve real business problems.I don't just write code in one language; I leverage advanced AI development tools to master and deploy the right technology for your specific problem—be it Web, Mobile, or Desktop!
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#projects" class="rounded-xl bg-accent-500 px-8 py-4 text-sm font-bold text-slate-900 transition hover:bg-accent-400">Explore Work</a>
+          <a href="#contact" class="rounded-xl border border-slate-700 px-8 py-4 text-sm font-bold text-slate-100 transition hover:border-azure-400">Hire Me</a>
+        </div>
+      </section>
+
+      <section id="projects" class="py-20">
+        <div class="mb-10 flex items-center justify-between gap-4">
+          <h2 class="text-3xl font-bold text-white">Featured Case Studies</h2>
+          <div class="flex items-center gap-2">
+            <button id="projectsPrev" type="button" class="rounded-full border border-azure-400/40 bg-slate-900/70 px-3 py-2 text-azure-300 transition hover:border-azure-300 hover:text-azure-200" aria-label="Previous project">
+              ←
+            </button>
+            <button id="projectsNext" type="button" class="rounded-full border border-emerald-400/40 bg-slate-900/70 px-3 py-2 text-emerald-300 transition hover:border-emerald-300 hover:text-emerald-200" aria-label="Next project">
+              →
+            </button>
+          </div>
+        </div>
+
+        <div id="projectsSlider" class="project-slider overflow-x-auto scroll-smooth">
+          <div class="flex gap-4 lg:gap-4">
+            <article class="project-slide">
+              <div class="glass project-card relative rounded-2xl p-6 transition duration-300 hover:-translate-y-2">
+                <span class="absolute right-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-300">
+                  <span class="pulse-dot inline-block h-2 w-2 rounded-full bg-emerald-400"></span>
+                  Live Demo
+                </span>
+                <div class="video-frame relative mb-4 w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-900/40">
+                  <video class="project-video h-full w-full object-cover" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dndrpquid/video/upload/so_0,q_auto,f_auto/portfolio/restaurant-pos.jpg">
+                    <source src="https://res.cloudinary.com/dndrpquid/video/upload/q_auto,f_auto/portfolio/restaurant-pos.mp4" type="video/mp4" />
+                  </video>
+                  <div class="video-overlay absolute inset-0 flex items-center justify-center">
+                    <span class="inline-flex items-center gap-2 rounded-full bg-slate-900/45 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white">
+                      <span class="text-sm">▶</span> Watch Demo
+                    </span>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold text-white">Restaurant POS (Desktop)</h3>
+                <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+                  A high-performance desktop management system designed for real-time order tracking, inventory management, and offline-first stability.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-azure-400 font-bold uppercase">Desktop</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-accent-400 font-bold uppercase">Java</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-emerald-300 font-bold uppercase">POS</span>
+                </div>
+                <a href="#" class="mt-5 inline-flex rounded-lg bg-azure-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-900 transition hover:bg-azure-400">Watch Demo</a>
+              </div>
+            </article>
+
+            <article class="project-slide">
+              <div class="glass project-card relative rounded-2xl p-6 transition duration-300 hover:-translate-y-2">
+                <span class="absolute right-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-300">
+                  <span class="pulse-dot inline-block h-2 w-2 rounded-full bg-emerald-400"></span>
+                  Live Demo
+                </span>
+                <div class="video-frame relative mb-4 w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-900/40">
+                  <video class="project-video h-full w-full object-cover" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dndrpquid/video/upload/so_0,q_auto,f_auto/portfolio/selenium-bot.jpg">
+                    <source src="https://res.cloudinary.com/dndrpquid/video/upload/q_auto,f_auto/portfolio/selenium-bot.mp4" type="video/mp4" />
+                  </video>
+                  <div class="video-overlay absolute inset-0 flex items-center justify-center">
+                    <span class="inline-flex items-center gap-2 rounded-full bg-slate-900/45 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white">
+                      <span class="text-sm">▶</span> Watch Demo
+                    </span>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold text-white">Selenium Bot</h3>
+                <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+                  A resilient web automation engine that executes browser tasks autonomously, handles retries, and integrates AI-assisted decision steps for dynamic pages.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-azure-400 font-bold uppercase">Automation</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-accent-400 font-bold uppercase">Python / GCP</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-emerald-300 font-bold uppercase">Selenium</span>
+                </div>
+                <a href="#" class="mt-5 inline-flex rounded-lg bg-azure-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-900 transition hover:bg-azure-400">Watch Demo</a>
+              </div>
+            </article>
+
+            <article class="project-slide">
+              <div class="glass project-card relative rounded-2xl p-6 transition duration-300 hover:-translate-y-2">
+                <span class="absolute right-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-300">
+                  <span class="pulse-dot inline-block h-2 w-2 rounded-full bg-emerald-400"></span>
+                  Live Demo
+                </span>
+                <div class="video-frame relative mb-4 w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-900/40">
+                  <video class="project-video h-full w-full object-cover" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dndrpquid/video/upload/so_0,q_auto,f_auto/portfolio/fleet-tracking-system.jpg">
+                    <source src="https://res.cloudinary.com/dndrpquid/video/upload/q_auto,f_auto/portfolio/fleet-tracking-system.mp4" type="video/mp4" />
+                  </video>
+                  <div class="video-overlay absolute inset-0 flex items-center justify-center">
+                    <span class="inline-flex items-center gap-2 rounded-full bg-slate-900/45 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white">
+                      <span class="text-sm">▶</span> Watch Demo
+                    </span>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold text-white">Fleet Tracking System</h3>
+                <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+                  A live fleet visibility platform that tracks routes, fuel metrics, and vehicle status in real time for better dispatch and logistics decisions.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-azure-400 font-bold uppercase">GPS</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-accent-400 font-bold uppercase">Realtime</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-emerald-300 font-bold uppercase">Fleet Ops</span>
+                </div>
+                <a href="#" class="mt-5 inline-flex rounded-lg bg-azure-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-900 transition hover:bg-azure-400">Watch Demo</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="py-20">
+        <h2 class="text-3xl font-bold text-white mb-10">Technical Versatility</h2>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div class="glass p-6 rounded-2xl border-l-4 border-azure-500">
+            <h4 class="font-bold text-azure-400 mb-2">Web & Cloud</h4>
+            <p class="text-xs text-slate-400">GCP, Node.js, React, Firebase, REST APIs</p>
+          </div>
+          <div class="glass p-6 rounded-2xl border-l-4 border-accent-500">
+            <h4 class="font-bold text-accent-400 mb-2">Mobile</h4>
+            <p class="text-xs text-slate-400">React Native, Java (Android), UI/UX Design</p>
+          </div>
+          <div class="glass p-6 rounded-2xl border-l-4 border-emerald-500">
+            <h4 class="font-bold text-emerald-300 mb-2">Desktop</h4>
+            <p class="text-xs text-slate-400">Electron, Java/Swing, System Integration</p>
+          </div>
+          <div class="glass p-6 rounded-2xl border-l-4 border-white">
+            <h4 class="font-bold text-white mb-2">Tools</h4>
+            <p class="text-xs text-slate-400">Git, GitHub Copilot, Selenium, Kali Linux</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="py-20">
+        <div class="glass p-10 rounded-3xl">
+          <h2 class="text-3xl font-bold text-white mb-6">Engineering Philosophy</h2>
+          <p class="text-slate-300 leading-relaxed max-w-4xl">
+            As a software engineering student and business founder, I thrive on complexity. I don't believe in being locked into a single language. My workflow is built on <strong>Agile Versatility</strong>—I leverage AI development tools to master and switch between frameworks rapidly, ensuring that I always use the right tool for the job. Whether it's a secure desktop POS or a cloud-hosted automation script, I deliver code that scales.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="py-20 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">Let's Build Something Great</h2>
+        <p class="text-slate-400 mb-10">Choose your preferred channel and I’ll respond quickly.</p>
+        <div class="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="mailto:sikalumbit30@gmail.com" class="glass rounded-2xl p-5 text-left transition hover:-translate-y-1">
+            <p class="text-xs uppercase tracking-widest text-slate-400">Email</p>
+            <p class="mt-2 text-sm font-semibold text-accent-300 break-all">sikalumbit30@gmail.com</p>
+          </a>
+          <a href="https://wa.me/260768834035" target="_blank" rel="noreferrer" class="glass rounded-2xl p-5 text-left transition hover:-translate-y-1">
+            <p class="text-xs uppercase tracking-widest text-slate-400">WhatsApp</p>
+            <p class="mt-2 text-sm font-semibold text-emerald-300">+260768834035</p>
+          </a>
+          <a href="#" class="glass rounded-2xl p-5 text-left transition hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
+            <p class="text-xs uppercase tracking-widest text-slate-400">LinkedIn / Portfolio</p>
+            <p class="mt-2 text-sm font-semibold text-azure-300">Add your profile URL</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <a id="whatsAppFloat" href="https://wa.me/260768834035" target="_blank" rel="noreferrer" class="group fixed bottom-6 right-6 z-50 inline-flex items-center gap-3 rounded-full border border-emerald-300/30 bg-emerald-500/70 px-3 py-3 text-white shadow-xl backdrop-blur-md transition hover:-translate-y-1 hover:bg-emerald-500" aria-label="Chat on WhatsApp at +260768834035">
+      <span class="hidden md:inline-flex whitespace-nowrap rounded-full bg-slate-950/35 px-3 py-1 text-xs font-semibold tracking-wide text-white">+260768834035</span>
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-xl">💬</span>
+    </a>
+
+    <footer class="py-12 border-t border-slate-800 text-center text-xs text-slate-500">
+      © <span id="year"></span> Taonga Kulture Sikalumbi | Rajab Culture Digital Solutions
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const whatsAppFloat = document.getElementById('whatsAppFloat');
+      const whatsAppNumber = '260768834035';
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
+      if (isMobile) {
+        whatsAppFloat.href = `https://wa.me/${whatsAppNumber}`;
+      } else {
+        whatsAppFloat.href = `https://wa.me/${whatsAppNumber}`;
+        whatsAppFloat.title = '+260768834035';
+      }
+
+      const projectsSlider = document.getElementById('projectsSlider');
+      const projectsPrev = document.getElementById('projectsPrev');
+      const projectsNext = document.getElementById('projectsNext');
+      const projectCards = Array.from(document.querySelectorAll('.project-card'));
+      const projectSlides = Array.from(document.querySelectorAll('.project-slide'));
+
+      const getSlideStep = () => {
+        const firstSlide = projectSlides[0];
+        if (!firstSlide) return 0;
+        const style = window.getComputedStyle(firstSlide.parentElement);
+        const gap = parseFloat(style.columnGap || style.gap || '0');
+        return firstSlide.getBoundingClientRect().width + gap;
+      };
+
+      const slideBy = (direction) => {
+        const step = getSlideStep();
+        projectsSlider.scrollBy({ left: direction * step, behavior: 'smooth' });
+      };
+
+      projectsPrev.addEventListener('click', () => slideBy(-1));
+      projectsNext.addEventListener('click', () => slideBy(1));
+
+      const setActiveCard = () => {
+        const sliderRect = projectsSlider.getBoundingClientRect();
+        const center = sliderRect.left + sliderRect.width / 2;
+        let closest = null;
+        let minDistance = Infinity;
+
+        projectCards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(center - cardCenter);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closest = card;
+          }
+        });
+
+        projectCards.forEach((card) => card.classList.remove('is-active'));
+        if (closest) closest.classList.add('is-active');
+      };
+
+      projectsSlider.addEventListener('scroll', () => {
+        window.requestAnimationFrame(setActiveCard);
+      }, { passive: true });
+      window.addEventListener('resize', setActiveCard);
+      setActiveCard();
+
+      const videoCards = Array.from(document.querySelectorAll('.project-card'));
+      videoCards.forEach((card) => {
+        const video = card.querySelector('video');
+        if (!video) return;
+
+        video.muted = true;
+        video.pause();
+
+        const playVideo = () => {
+          const hasSource = video.querySelector('source')?.getAttribute('src');
+          if (!hasSource) return;
+          video.play().then(() => {
+            card.classList.add('is-playing');
+          }).catch(() => {});
+        };
+
+        const stopVideo = () => {
+          video.pause();
+          video.currentTime = 0;
+          card.classList.remove('is-playing');
+        };
+
+        card.addEventListener('mouseenter', playVideo);
+        card.addEventListener('mouseleave', stopVideo);
+        card.addEventListener('touchstart', playVideo, { passive: true });
+        card.addEventListener('touchend', stopVideo, { passive: true });
+      });
+    </script>
+  </body>
+</html>
