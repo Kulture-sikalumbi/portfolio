@@ -125,7 +125,7 @@
 
       <section id="projects" class="py-20">
         <div class="mb-10 flex items-center justify-between gap-4">
-          <h2 class="text-3xl font-bold text-white">Featured Case Studies</h2>
+          <h2 class="text-3xl font-bold text-white">My Projects</h2>
           <div class="flex items-center gap-2">
             <button id="projectsPrev" type="button" class="rounded-full border border-azure-400/40 bg-slate-900/70 px-3 py-2 text-azure-300 transition hover:border-azure-300 hover:text-azure-200" aria-label="Previous project">
               ←
@@ -307,6 +307,9 @@
       const projectsNext = document.getElementById('projectsNext');
       const projectCards = Array.from(document.querySelectorAll('.project-card'));
       const projectSlides = Array.from(document.querySelectorAll('.project-slide'));
+      const mobileMediaQuery = window.matchMedia('(max-width: 767px)');
+      let autoSlideTimer = null;
+      let currentActiveIndex = 0;
 
       const getSlideStep = () => {
         const firstSlide = projectSlides[0];
@@ -319,6 +322,56 @@
       const slideBy = (direction) => {
         const step = getSlideStep();
         projectsSlider.scrollBy({ left: direction * step, behavior: 'smooth' });
+      };
+
+      const goToSlide = (index) => {
+        const step = getSlideStep();
+        projectsSlider.scrollTo({ left: step * index, behavior: 'smooth' });
+      };
+
+      const playCardVideo = (card) => {
+        const video = card?.querySelector('video');
+        if (!video) return;
+        const hasSource = video.querySelector('source')?.getAttribute('src');
+        if (!hasSource) return;
+        video.play().then(() => {
+          card.classList.add('is-playing');
+        }).catch(() => {});
+      };
+
+      const stopCardVideo = (card) => {
+        const video = card?.querySelector('video');
+        if (!video) return;
+        video.pause();
+        video.currentTime = 0;
+        card.classList.remove('is-playing');
+      };
+
+      const syncMobileActiveVideo = () => {
+        if (!mobileMediaQuery.matches) return;
+        projectCards.forEach((card, idx) => {
+          if (idx === currentActiveIndex) {
+            playCardVideo(card);
+          } else {
+            stopCardVideo(card);
+          }
+        });
+      };
+
+      const startAutoSlideMobile = () => {
+        if (!mobileMediaQuery.matches || projectSlides.length < 2) return;
+        if (autoSlideTimer) clearInterval(autoSlideTimer);
+        autoSlideTimer = setInterval(() => {
+          currentActiveIndex = (currentActiveIndex + 1) % projectSlides.length;
+          goToSlide(currentActiveIndex);
+        }, 4500);
+      };
+
+      const stopAutoSlideMobile = () => {
+        if (autoSlideTimer) {
+          clearInterval(autoSlideTimer);
+          autoSlideTimer = null;
+        }
       };
 
       projectsPrev.addEventListener('click', () => slideBy(-1));
@@ -341,7 +394,11 @@
         });
 
         projectCards.forEach((card) => card.classList.remove('is-active'));
-        if (closest) closest.classList.add('is-active');
+        if (closest) {
+          closest.classList.add('is-active');
+          currentActiveIndex = projectCards.indexOf(closest);
+        }
+        syncMobileActiveVideo();
       };
 
       projectsSlider.addEventListener('scroll', () => {
@@ -359,17 +416,11 @@
         video.pause();
 
         const playVideo = () => {
-          const hasSource = video.querySelector('source')?.getAttribute('src');
-          if (!hasSource) return;
-          video.play().then(() => {
-            card.classList.add('is-playing');
-          }).catch(() => {});
+          playCardVideo(card);
         };
 
         const stopVideo = () => {
-          video.pause();
-          video.currentTime = 0;
-          card.classList.remove('is-playing');
+          stopCardVideo(card);
         };
 
         card.addEventListener('mouseenter', playVideo);
@@ -377,6 +428,26 @@
         card.addEventListener('touchstart', playVideo, { passive: true });
         card.addEventListener('touchend', stopVideo, { passive: true });
       });
+
+      projectsSlider.addEventListener('pointerdown', stopAutoSlideMobile, { passive: true });
+      projectsSlider.addEventListener('touchstart', stopAutoSlideMobile, { passive: true });
+      projectsSlider.addEventListener('pointerup', startAutoSlideMobile, { passive: true });
+      projectsSlider.addEventListener('touchend', startAutoSlideMobile, { passive: true });
+
+      mobileMediaQuery.addEventListener('change', () => {
+        if (mobileMediaQuery.matches) {
+          startAutoSlideMobile();
+          syncMobileActiveVideo();
+        } else {
+          stopAutoSlideMobile();
+          projectCards.forEach((card) => stopCardVideo(card));
+        }
+      });
+
+      if (mobileMediaQuery.matches) {
+        startAutoSlideMobile();
+        syncMobileActiveVideo();
+      }
     </script>
   </body>
 </html>
