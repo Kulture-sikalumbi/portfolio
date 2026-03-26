@@ -65,6 +65,7 @@
       }
       .video-frame {
         aspect-ratio: 16 / 9;
+        cursor: pointer;
       }
       .video-overlay {
         background: rgba(15, 23, 42, 0.38);
@@ -90,6 +91,13 @@
         50% {
           box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
         }
+      }
+      .feed-track {
+        scroll-snap-type: y mandatory;
+      }
+      .feed-item {
+        min-height: 100vh;
+        scroll-snap-align: start;
       }
     </style>
   </head>
@@ -125,7 +133,10 @@
 
       <section id="projects" class="py-20">
         <div class="mb-10 flex items-center justify-between gap-4">
-          <h2 class="text-3xl font-bold text-white">My Projects</h2>
+          <div>
+            <h2 class="text-3xl font-bold text-white">My Projects</h2>
+            <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-azure-300">All demos are deployed on Microsoft Azure</p>
+          </div>
           <div class="flex items-center gap-2">
             <button id="projectsPrev" type="button" class="rounded-full border border-azure-400/40 bg-slate-900/70 px-3 py-2 text-azure-300 transition hover:border-azure-300 hover:text-azure-200" aria-label="Previous project">
               ←
@@ -145,8 +156,8 @@
                   Live Demo
                 </span>
                 <div class="video-frame relative mb-4 w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-900/40">
-                  <video class="project-video h-full w-full object-cover" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dndrpquid/video/upload/so_0,q_auto,f_auto/portfolio/restaurant-pos.jpg">
-                    <source src="https://res.cloudinary.com/dndrpquid/video/upload/q_auto,f_auto/portfolio/restaurant-pos.mp4" type="video/mp4" />
+                  <video class="project-video h-full w-full object-cover" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dndrpquid/video/upload/so_0,q_auto,f_auto/v1774249804/supa-fleet_piaprr.jpg">
+                    <source src="https://res.cloudinary.com/dndrpquid/video/upload/v1774249804/supa-fleet_piaprr.mp4" type="video/mp4" />
                   </video>
                   <div class="video-overlay absolute inset-0 flex items-center justify-center">
                     <span class="inline-flex items-center gap-2 rounded-full bg-slate-900/45 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white">
@@ -154,16 +165,17 @@
                     </span>
                   </div>
                 </div>
-                <h3 class="text-xl font-bold text-white">Restaurant POS (Desktop)</h3>
+                <h3 class="text-xl font-bold text-white">GPS Tracker</h3>
                 <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-                  A high-performance desktop management system designed for real-time order tracking, inventory management, and offline-first stability.
+                  A realtime GPS tracking and fleet management system built to monitor vehicles live, optimize routes, and improve dispatch decisions, fully deployed on Microsoft Azure.
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-azure-400 font-bold uppercase">Desktop</span>
-                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-accent-400 font-bold uppercase">Java</span>
-                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-emerald-300 font-bold uppercase">POS</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-azure-400 font-bold uppercase">Supabase</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-accent-400 font-bold uppercase">Node.js</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-emerald-300 font-bold uppercase">React</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-sky-300 font-bold uppercase">Azure</span>
                 </div>
-                <a href="#" class="mt-5 inline-flex rounded-lg bg-azure-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-900 transition hover:bg-azure-400">Watch Demo</a>
+                <a href="#" class="watch-demo-btn mt-5 inline-flex rounded-lg bg-azure-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-900 transition hover:bg-azure-400">Watch Demo</a>
               </div>
             </article>
 
@@ -174,8 +186,8 @@
                   Live Demo
                 </span>
                 <div class="video-frame relative mb-4 w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-900/40">
-                  <video class="project-video h-full w-full object-cover" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dndrpquid/video/upload/so_0,q_auto,f_auto/portfolio/selenium-bot.jpg">
-                    <source src="https://res.cloudinary.com/dndrpquid/video/upload/q_auto,f_auto/portfolio/selenium-bot.mp4" type="video/mp4" />
+                  <video class="project-video h-full w-full object-cover" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dndrpquid/video/upload/so_0,q_auto,f_auto/v1774250376/Video_Project_1_g1w3fn.jpg">
+                    <source src="https://res.cloudinary.com/dndrpquid/video/upload/v1774250376/Video_Project_1_g1w3fn.mp4" type="video/mp4" />
                   </video>
                   <div class="video-overlay absolute inset-0 flex items-center justify-center">
                     <span class="inline-flex items-center gap-2 rounded-full bg-slate-900/45 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white">
@@ -183,16 +195,17 @@
                     </span>
                   </div>
                 </div>
-                <h3 class="text-xl font-bold text-white">Selenium Bot</h3>
+                <h3 class="text-xl font-bold text-white">NearMe Geofence Alert System</h3>
                 <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-                  A resilient web automation engine that executes browser tasks autonomously, handles retries, and integrates AI-assisted decision steps for dynamic pages.
+                  A smart geofence platform that sends live proximity alerts when a tracked device is near you or home, with Azure-backed infrastructure and smart-home integration support.
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-azure-400 font-bold uppercase">Automation</span>
-                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-accent-400 font-bold uppercase">Python / GCP</span>
-                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-emerald-300 font-bold uppercase">Selenium</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-azure-400 font-bold uppercase">Python</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-accent-400 font-bold uppercase">Geofencing</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-emerald-300 font-bold uppercase">Smart Alerts</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-sky-300 font-bold uppercase">Azure</span>
                 </div>
-                <a href="#" class="mt-5 inline-flex rounded-lg bg-azure-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-900 transition hover:bg-azure-400">Watch Demo</a>
+                <a href="#" class="watch-demo-btn mt-5 inline-flex rounded-lg bg-azure-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-900 transition hover:bg-azure-400">Watch Demo</a>
               </div>
             </article>
 
@@ -203,8 +216,8 @@
                   Live Demo
                 </span>
                 <div class="video-frame relative mb-4 w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-900/40">
-                  <video class="project-video h-full w-full object-cover" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dndrpquid/video/upload/so_0,q_auto,f_auto/portfolio/fleet-tracking-system.jpg">
-                    <source src="https://res.cloudinary.com/dndrpquid/video/upload/q_auto,f_auto/portfolio/fleet-tracking-system.mp4" type="video/mp4" />
+                  <video class="project-video h-full w-full object-cover" muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dndrpquid/video/upload/so_0,q_auto,f_auto/v1774524557/video1797777173_xt2pwl.jpg">
+                    <source src="https://res.cloudinary.com/dndrpquid/video/upload/v1774524557/video1797777173_xt2pwl.mp4" type="video/mp4" />
                   </video>
                   <div class="video-overlay absolute inset-0 flex items-center justify-center">
                     <span class="inline-flex items-center gap-2 rounded-full bg-slate-900/45 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white">
@@ -212,16 +225,19 @@
                     </span>
                   </div>
                 </div>
-                <h3 class="text-xl font-bold text-white">Fleet Tracking System</h3>
+                <h3 class="text-xl font-bold text-white">Restaurant POS System</h3>
                 <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-                  A live fleet visibility platform that tracks routes, fuel metrics, and vehicle status in real time for better dispatch and logistics decisions.
+                  A modern point-of-sale platform for restaurants with realtime order handling, billing, and operations tracking, deployed on Microsoft Azure.
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-azure-400 font-bold uppercase">GPS</span>
-                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-accent-400 font-bold uppercase">Realtime</span>
-                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-emerald-300 font-bold uppercase">Fleet Ops</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-azure-400 font-bold uppercase">Next.js</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-accent-400 font-bold uppercase">Supabase</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-emerald-300 font-bold uppercase">React 18 + TypeScript</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-sky-300 font-bold uppercase">Vite 5 + SWC</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-cyan-300 font-bold uppercase">Tailwind + Animate</span>
+                  <span class="rounded bg-slate-800 px-2 py-1 text-[10px] text-indigo-300 font-bold uppercase">Azure</span>
                 </div>
-                <a href="#" class="mt-5 inline-flex rounded-lg bg-azure-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-900 transition hover:bg-azure-400">Watch Demo</a>
+                <a href="#" class="watch-demo-btn mt-5 inline-flex rounded-lg bg-azure-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-900 transition hover:bg-azure-400">Watch Demo</a>
               </div>
             </article>
           </div>
@@ -279,6 +295,19 @@
       </section>
     </main>
 
+    <div id="projectFeedModal" class="fixed inset-0 z-[80] hidden bg-slate-950/95 backdrop-blur-md">
+      <div class="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-center justify-between px-4 py-4 sm:px-6">
+        <p class="pointer-events-auto rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-200">
+          Project Demo Feed
+        </p>
+        <button id="closeProjectFeed" type="button" class="pointer-events-auto rounded-full border border-slate-600 bg-slate-900/70 px-3 py-2 text-sm font-semibold text-slate-100 transition hover:border-rose-300 hover:text-rose-200" aria-label="Close demo feed">
+          ✕ Close
+        </button>
+      </div>
+      <div id="projectFeedTrack" class="feed-track h-full overflow-y-auto">
+      </div>
+    </div>
+
     <a id="whatsAppFloat" href="https://wa.me/260768834035" target="_blank" rel="noreferrer" class="group fixed bottom-6 right-6 z-50 inline-flex items-center gap-3 rounded-full border border-emerald-300/30 bg-emerald-500/70 px-3 py-3 text-white shadow-xl backdrop-blur-md transition hover:-translate-y-1 hover:bg-emerald-500" aria-label="Chat on WhatsApp at +260768834035">
       <span class="hidden md:inline-flex whitespace-nowrap rounded-full bg-slate-950/35 px-3 py-1 text-xs font-semibold tracking-wide text-white">+260768834035</span>
       <span class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-xl">💬</span>
@@ -303,13 +332,19 @@
       }
 
       const projectsSlider = document.getElementById('projectsSlider');
+      const projectsSection = document.getElementById('projects');
       const projectsPrev = document.getElementById('projectsPrev');
       const projectsNext = document.getElementById('projectsNext');
       const projectCards = Array.from(document.querySelectorAll('.project-card'));
       const projectSlides = Array.from(document.querySelectorAll('.project-slide'));
+      const projectFeedModal = document.getElementById('projectFeedModal');
+      const projectFeedTrack = document.getElementById('projectFeedTrack');
+      const closeProjectFeed = document.getElementById('closeProjectFeed');
       const mobileMediaQuery = window.matchMedia('(max-width: 767px)');
       let autoSlideTimer = null;
       let currentActiveIndex = 0;
+      let isProjectsInView = false;
+      let projectFeedObserver = null;
 
       const getSlideStep = () => {
         const firstSlide = projectSlides[0];
@@ -347,8 +382,16 @@
         card.classList.remove('is-playing');
       };
 
-      const syncMobileActiveVideo = () => {
-        if (!mobileMediaQuery.matches) return;
+      const stopAllProjectVideos = () => {
+        projectCards.forEach((card) => stopCardVideo(card));
+      };
+
+      const syncActiveVideoPlayback = () => {
+        if (!isProjectsInView) {
+          stopAllProjectVideos();
+          return;
+        }
+
         projectCards.forEach((card, idx) => {
           if (idx === currentActiveIndex) {
             playCardVideo(card);
@@ -359,7 +402,7 @@
       };
 
       const startAutoSlideMobile = () => {
-        if (!mobileMediaQuery.matches || projectSlides.length < 2) return;
+        if (!mobileMediaQuery.matches || !isProjectsInView || projectSlides.length < 2) return;
         if (autoSlideTimer) clearInterval(autoSlideTimer);
         autoSlideTimer = setInterval(() => {
           currentActiveIndex = (currentActiveIndex + 1) % projectSlides.length;
@@ -398,7 +441,7 @@
           closest.classList.add('is-active');
           currentActiveIndex = projectCards.indexOf(closest);
         }
-        syncMobileActiveVideo();
+        syncActiveVideoPlayback();
       };
 
       projectsSlider.addEventListener('scroll', () => {
@@ -416,10 +459,17 @@
         video.pause();
 
         const playVideo = () => {
+          if (!mobileMediaQuery.matches) {
+            stopAllProjectVideos();
+          }
           playCardVideo(card);
         };
 
         const stopVideo = () => {
+          if (!mobileMediaQuery.matches) {
+            syncActiveVideoPlayback();
+            return;
+          }
           stopCardVideo(card);
         };
 
@@ -437,17 +487,130 @@
       mobileMediaQuery.addEventListener('change', () => {
         if (mobileMediaQuery.matches) {
           startAutoSlideMobile();
-          syncMobileActiveVideo();
+          syncActiveVideoPlayback();
         } else {
           stopAutoSlideMobile();
-          projectCards.forEach((card) => stopCardVideo(card));
+          syncActiveVideoPlayback();
         }
       });
 
-      if (mobileMediaQuery.matches) {
-        startAutoSlideMobile();
-        syncMobileActiveVideo();
-      }
+      const projectsObserver = new IntersectionObserver((entries) => {
+        const [entry] = entries;
+        isProjectsInView = entry.isIntersecting && entry.intersectionRatio >= 0.45;
+
+        if (isProjectsInView) {
+          syncActiveVideoPlayback();
+          startAutoSlideMobile();
+        } else {
+          stopAutoSlideMobile();
+          stopAllProjectVideos();
+        }
+      }, { threshold: [0.2, 0.45, 0.7] });
+
+      projectsObserver.observe(projectsSection);
+
+      const openProjectFeed = (startIndex) => {
+        const queue = [
+          ...projectCards.slice(startIndex),
+          ...projectCards.slice(0, startIndex)
+        ];
+
+        projectFeedTrack.innerHTML = queue.map((card, idx) => {
+          const cardVideo = card.querySelector('video');
+          const cardSource = card.querySelector('source')?.getAttribute('src') || '';
+          const cardPoster = cardVideo?.getAttribute('poster') || '';
+          const title = card.querySelector('h3')?.textContent?.trim() || `Project ${idx + 1}`;
+          const description = card.querySelector('p')?.textContent?.trim() || '';
+
+          return `
+            <article class="feed-item flex items-center justify-center px-4 py-16 sm:px-8">
+              <div class="glass w-full max-w-3xl overflow-hidden rounded-3xl border border-slate-700/70 p-4 sm:p-6">
+                <div class="relative aspect-[9/16] sm:aspect-video overflow-hidden rounded-2xl border border-slate-700 bg-black">
+                  <video class="feed-video h-full w-full object-cover" muted playsinline preload="metadata" poster="${cardPoster}">
+                    <source src="${cardSource}" type="video/mp4" />
+                  </video>
+                  <div class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 to-transparent p-4">
+                    <h4 class="text-base font-bold text-white sm:text-lg">${title}</h4>
+                    <p class="mt-1 text-xs text-slate-300 sm:text-sm">${description}</p>
+                  </div>
+                </div>
+                <p class="mt-3 text-center text-[11px] uppercase tracking-widest text-slate-400">Scroll down for next demo</p>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        const feedVideos = Array.from(projectFeedTrack.querySelectorAll('.feed-video'));
+
+        feedVideos.forEach((video) => {
+          video.addEventListener('ended', () => {
+            const nextItem = video.closest('.feed-item')?.nextElementSibling;
+            if (nextItem) {
+              nextItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+
+        if (projectFeedObserver) projectFeedObserver.disconnect();
+        projectFeedObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target;
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.65) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+              video.currentTime = 0;
+            }
+          });
+        }, {
+          root: projectFeedTrack,
+          threshold: [0.4, 0.65, 0.9]
+        });
+
+        feedVideos.forEach((video) => projectFeedObserver.observe(video));
+
+        projectFeedModal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        projectFeedTrack.scrollTop = 0;
+      };
+
+      const closeProjectFeedModal = () => {
+        if (projectFeedObserver) {
+          projectFeedObserver.disconnect();
+          projectFeedObserver = null;
+        }
+
+        Array.from(projectFeedTrack.querySelectorAll('.feed-video')).forEach((video) => {
+          video.pause();
+          video.currentTime = 0;
+        });
+
+        projectFeedModal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        projectFeedTrack.innerHTML = '';
+      };
+
+      closeProjectFeed.addEventListener('click', closeProjectFeedModal);
+      projectFeedModal.addEventListener('click', (event) => {
+        if (event.target === projectFeedModal) closeProjectFeedModal();
+      });
+
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !projectFeedModal.classList.contains('hidden')) {
+          closeProjectFeedModal();
+        }
+      });
+
+      projectCards.forEach((card, index) => {
+        const frame = card.querySelector('.video-frame');
+        const watchBtn = card.querySelector('.watch-demo-btn');
+
+        frame?.addEventListener('click', () => openProjectFeed(index));
+        watchBtn?.addEventListener('click', (event) => {
+          event.preventDefault();
+          openProjectFeed(index);
+        });
+      });
     </script>
   </body>
 </html>
